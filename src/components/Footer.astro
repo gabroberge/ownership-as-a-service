@@ -1,0 +1,90 @@
+---
+import Logo from './Logo.astro';
+
+const columns = [
+	{
+		heading: 'Platform',
+		links: [
+			'Ownership Graph',
+			'Reliable Person Routing™',
+			'Convergence Analytics',
+			'Ownership Debt™ Scanner',
+			'Integrations',
+		],
+	},
+	{
+		heading: 'Company',
+		links: [
+			'About',
+			'Careers — Ownership Success Manager (always hiring)',
+			'Press',
+			'Trust Center',
+		],
+	},
+	{
+		heading: 'Resources',
+		links: [
+			'The State of Ownership 2026',
+			'Ownership Maturity Assessment',
+			'Whitepaper: The Reliable Person Protocol™',
+			'Documentation',
+			'Who owns this page?',
+		],
+	},
+];
+---
+
+<footer class="bg-paper">
+	<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+		<div class="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
+			<div>
+				<Logo />
+				<p class="mt-4 max-w-xs text-[14px] leading-relaxed text-muted">
+					Ownership-as-a-Service™. Enterprise ownership infrastructure for organizations
+					where everyone is responsible.
+				</p>
+				<p class="mt-6 flex items-center gap-2 font-mono text-xs text-muted">
+					<span class="inline-block h-2 w-2 rounded-full bg-signal" aria-hidden="true"></span>
+					System status: green. The system is always green.
+				</p>
+			</div>
+
+			<nav class="grid gap-10 sm:grid-cols-3" aria-label="Footer">
+				{
+					columns.map((col) => (
+						<div>
+							<h3 class="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+								{col.heading}
+							</h3>
+							<ul class="mt-4 space-y-2.5">
+								{col.links.map((label) => (
+									<li>
+										<a
+											href="#top"
+											class="text-[13.5px] text-ink-soft transition-colors hover:text-ink"
+										>
+											{label}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</nav>
+		</div>
+
+		<div class="mt-14 border-t border-line pt-6">
+			<p class="font-mono text-xs text-muted">
+				© 2026 OaaS, Inc. All responsibilities reserved.
+			</p>
+			<p class="mt-2 max-w-2xl font-mono text-[11px] leading-relaxed text-muted/70">
+				OaaS™, Reliable Person Routing™, Ownership Inference™, Shared Ownership™,
+				Responsibility Diffusion™, Mental Load Balancing™, Follow-Up Delegation™, Ownership
+				Debt™, Continuous Ownership Learning™, and The Reliable Person Protocol™ are
+				trademarks of OaaS, Inc. OaaS is a fictional product. Any resemblance to your
+				organization is emergent behavior.
+			</p>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'OaaS™ — The work always finds an owner',
+	description =
+		'Ownership-as-a-Service™ is enterprise ownership infrastructure. OaaS observes how work actually gets done and guarantees every task, decision, and follow-up has an owner. Automatically.',
+} = Astro.props;
+---
+
+<!-- If you can read this, you have probably already been inferred. -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="bg-paper font-sans text-ink antialiased">
+		<script is:inline>
+			document.documentElement.classList.add('js');
+		</script>
+		<slot />
+		<script>
+			const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const targets = document.querySelectorAll('.reveal');
+			if (reduced || !('IntersectionObserver' in window)) {
+				targets.forEach((el) => el.classList.add('is-visible'));
+			} else {
+				const io = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								io.unobserve(entry.target);
+							}
+						}
+					},
+					{ rootMargin: '0px 0px -8% 0px' }
+				);
+				targets.forEach((el) => io.observe(el));
+			}
+		</script>
+	</body>
+</html>

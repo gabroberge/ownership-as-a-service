@@ -1,0 +1,69 @@
+---
+const stages = [
+	{
+		n: '01',
+		name: 'Explicit',
+		body: 'Every item has a named owner. Assignment is manual. Coverage depends on discipline.',
+		stat: 'Coverage 64%',
+	},
+	{
+		n: '02',
+		name: 'Shared',
+		body: 'Teams own outcomes collectively. Coverage reaches 100%. Accountable individuals become optional.',
+		stat: 'Coverage 100%',
+	},
+	{
+		n: '03',
+		name: 'Dynamic',
+		body: 'Ownership reassigns in real time as attention and availability shift. Assignment latency drops to minutes.',
+		stat: 'Latency 4m',
+	},
+	{
+		n: '04',
+		name: 'Inferred',
+		body: 'Explicit assignment becomes advisory. The platform already knows who will eventually handle it.',
+		stat: 'Assignments advisory',
+	},
+	{
+		n: '05',
+		name: 'Zero-assignment',
+		body: 'Work no longer needs to be assigned. Responsibility resolves itself.',
+		stat: 'Assignments 0',
+	},
+];
+---
+
+<section id="maturity" class="border-b border-line">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="reveal max-w-2xl">
+			<p class="eyebrow">The ownership maturity model</p>
+			<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				Five stages. One destination.
+			</h2>
+			<p class="mt-5 text-[16.5px] leading-relaxed text-ink-soft">
+				OaaS meets your organization where it is, then advances it — from manually assigned
+				ownership to an organization where assignment itself is obsolete.
+			</p>
+		</div>
+
+		<ol class="reveal mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-5">
+			{
+				stages.map((stage, i) => (
+					<li class={`flex flex-col p-6 ${i === stages.length - 1 ? 'bg-accent-soft' : 'bg-surface'}`}>
+						<span class="font-mono text-[11px] tracking-[0.16em] text-muted">{stage.n}</span>
+						<h3 class="mt-2 text-[15.5px] font-semibold tracking-tight">{stage.name}</h3>
+						<p class="mt-2 flex-1 text-[13.5px] leading-relaxed text-ink-soft">{stage.body}</p>
+						<p class="mt-4 border-t border-line pt-3 font-mono text-[11px] tracking-[0.1em] text-accent uppercase">
+							{stage.stat}
+						</p>
+					</li>
+				))
+			}
+		</ol>
+
+		<p class="reveal mt-8 max-w-2xl text-[15px] leading-relaxed text-muted">
+			Most organizations assume they are at stage one. During onboarding, OaaS typically finds
+			they have been operating at stage five for years — informally, and without telemetry.
+		</p>
+	</div>
+</section>

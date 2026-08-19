@@ -1,43 +1,28 @@
-# Astro Starter Kit: Minimal
+# Ownership-as-a-Service™
+
+> The work always finds an owner.
+
+A satirical enterprise SaaS landing page for **OaaS™** — ownership infrastructure that
+guarantees every task, decision, follow-up, and loose end has an owner. It achieves this
+by observing who historically notices, follows up, retains context, and prevents failure…
+and routing everything to that person.
+
+The system works. That is the problem.
+
+Static site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com).
+
+## Development
 
 ```sh
-bun create astro@latest -- --template minimal
+bun install
+bun run dev      # or: astro dev --background
+bun run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Structure
 
-## 🚀 Project Structure
+- [src/pages/index.astro](src/pages/index.astro) — page composition (the narrative order matters)
+- [src/components/](src/components/) — one section per component
+- [src/styles/global.css](src/styles/global.css) — Tailwind v4 theme tokens and shared component classes
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+OaaS is a fictional product. Any resemblance to your organization is emergent behavior.

@@ -1,0 +1,53 @@
+---
+import Logo from './Logo.astro';
+
+const links = [
+	{ href: '#platform', label: 'Platform' },
+	{ href: '#routing', label: 'Routing' },
+	{ href: '#maturity', label: 'Maturity model' },
+	{ href: '#pricing', label: 'Pricing' },
+	{ href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-sm">
+	<nav
+		class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
+		aria-label="Main"
+	>
+		<a href="#top" class="rounded-sm focus-visible:outline-2 focus-visible:outline-accent">
+			<Logo />
+			<span class="sr-only">Ownership-as-a-Service — home</span>
+		</a>
+
+		<ul class="hidden items-center gap-7 md:flex">
+			{
+				links.map((link) => (
+					<li>
+						<a
+							href={link.href}
+							class="text-[13.5px] font-medium text-ink-soft transition-colors hover:text-ink"
+						>
+							{link.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="flex items-center gap-3">
+			<a
+				href="#faq"
+				class="hidden text-[13.5px] font-medium text-ink-soft transition-colors hover:text-ink sm:block"
+			>
+				Sign in
+			</a>
+			<a
+				href="#demo"
+				class="rounded-md bg-ink px-4 py-2 text-[13.5px] font-medium text-paper transition-colors hover:bg-ink-soft"
+			>
+				Request a demo
+			</a>
+		</div>
+	</nav>
+</header>

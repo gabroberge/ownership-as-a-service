@@ -1,0 +1,51 @@
+---
+const invisibleWork = [
+	['Remembering', 'that the promise was made'],
+	['Noticing', 'that the deadline is at risk'],
+	['Following up', 'on the thing nobody replied to'],
+	['Retaining', 'the context nobody wrote down'],
+	['Asking', 'the question everyone is avoiding'],
+	['Ensuring', 'that someone else does their job'],
+];
+---
+
+<section class="border-b border-line bg-surface">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="reveal max-w-2xl">
+			<p class="eyebrow">The problem</p>
+			<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				Ambiguity is the most expensive thing in your organization.
+			</h2>
+			<p class="mt-5 text-[16.5px] leading-relaxed text-ink-soft">
+				You have roles, leads, assignees, sprint plans, escalation paths, and a responsibility
+				matrix. On paper, everything is owned. Yet somehow, in every meeting, someone still
+				asks: <em>“Who owns this?”</em>
+			</p>
+			<p class="mt-4 text-[16.5px] leading-relaxed text-ink-soft">
+				That's because an org chart describes who reports to whom. It says nothing about who
+				acts. Between what's assigned and what actually happens sits a layer of work no system
+				tracks:
+			</p>
+		</div>
+
+		<dl class="reveal mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+			{
+				invisibleWork.map(([verb, rest]) => (
+					<div class="bg-surface px-6 py-5">
+						<dt class="font-mono text-[11px] tracking-[0.16em] text-accent uppercase">
+							{verb}
+						</dt>
+						<dd class="mt-1.5 text-[15px] text-ink-soft">{rest}.</dd>
+					</div>
+				))
+			}
+		</dl>
+
+		<p class="reveal mt-10 max-w-2xl text-[16.5px] leading-relaxed text-ink-soft">
+			OaaS™ calls this <strong class="font-semibold text-ink">Ownership Debt™</strong> — the
+			follow-ups, remembered promises, and undocumented context accumulating outside your
+			systems of record. It is real work. It is measurable. And in your organization, it is
+			already owned — whether or not anyone assigned it.
+		</p>
+	</div>
+</section>

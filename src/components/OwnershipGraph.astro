@@ -1,0 +1,130 @@
+---
+// Declared structure vs. observed responsibility — the product's core exhibit.
+---
+
+<section id="platform" class="border-b border-line">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="reveal max-w-2xl">
+			<p class="eyebrow">The ownership graph</p>
+			<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				See who actually owns your organization.
+			</h2>
+			<p class="mt-5 text-[16.5px] leading-relaxed text-ink-soft">
+				OaaS constructs your true ownership graph from observed behavior — every notice,
+				nudge, status request, and quiet intervention — and lays it over the structure you
+				think you have. Most customers describe the first render as clarifying.
+			</p>
+		</div>
+
+		<div class="reveal mt-12 grid gap-6 lg:grid-cols-2">
+			<!-- Declared structure -->
+			<figure class="rounded-lg border border-line bg-surface p-6 sm:p-8">
+				<figcaption
+					class="flex items-baseline justify-between font-mono text-[11px] tracking-[0.16em] uppercase"
+				>
+					<span class="text-muted">Declared structure</span>
+					<span class="text-accent">Coverage: 100%</span>
+				</figcaption>
+				<svg
+					viewBox="0 0 340 240"
+					class="mt-6 w-full"
+					role="img"
+					aria-label="Org chart: a manager above two team leads above four team members, all evenly connected"
+				>
+					<g class="stroke-line" stroke-width="1.5" fill="none">
+						<path d="M170 46 L95 100"></path>
+						<path d="M170 46 L245 100"></path>
+						<path d="M95 130 L63 184"></path>
+						<path d="M95 130 L143 184"></path>
+						<path d="M245 130 L223 184"></path>
+						<path d="M245 130 L303 184"></path>
+					</g>
+					<g class="fill-paper stroke-line" stroke-width="1.5">
+						<rect x="130" y="16" width="80" height="30" rx="5"></rect>
+						<rect x="45" y="100" width="100" height="30" rx="5"></rect>
+						<rect x="195" y="100" width="100" height="30" rx="5"></rect>
+						<rect x="31" y="184" width="64" height="30" rx="5"></rect>
+						<rect x="111" y="184" width="64" height="30" rx="5"></rect>
+						<rect x="191" y="184" width="64" height="30" rx="5"></rect>
+						<rect x="271" y="184" width="64" height="30" rx="5"></rect>
+					</g>
+					<g
+						class="fill-muted font-mono"
+						font-size="9.5"
+						letter-spacing="0.08em"
+						text-anchor="middle"
+					>
+						<text x="170" y="35">MANAGER</text>
+						<text x="95" y="119">TEAM LEAD</text>
+						<text x="245" y="119">TEAM LEAD</text>
+						<text x="63" y="203">MEMBER</text>
+						<text x="143" y="203">MEMBER</text>
+						<text x="223" y="203">MEMBER</text>
+						<text x="303" y="203">MEMBER</text>
+					</g>
+				</svg>
+				<p class="mt-4 font-mono text-xs text-muted">Everything is covered.</p>
+			</figure>
+
+			<!-- Observed responsibility -->
+			<figure class="rounded-lg border border-line bg-surface p-6 sm:p-8">
+				<figcaption
+					class="flex items-baseline justify-between font-mono text-[11px] tracking-[0.16em] uppercase"
+				>
+					<span class="text-muted">Observed responsibility</span>
+					<span class="text-accent">Convergence: high</span>
+				</figcaption>
+				<svg
+					viewBox="0 0 340 240"
+					class="mt-6 w-full"
+					role="img"
+					aria-label="Responsibility flow: manager, team lead, client, project, and unassigned work all converge on one individual"
+				>
+					<g class="stroke-accent" fill="none" stroke-linecap="round">
+						<path d="M112 25 C190 25 210 85 258 106" stroke-width="1.5" opacity="0.45"></path>
+						<path d="M112 69 C185 69 205 95 258 110" stroke-width="2" opacity="0.55"></path>
+						<path d="M112 113 L258 113" stroke-width="2.5" opacity="0.7"></path>
+						<path d="M112 157 C185 157 205 131 258 116" stroke-width="2" opacity="0.55"></path>
+						<path d="M112 201 C190 201 210 141 258 120" stroke-width="2.5" opacity="0.7"></path>
+					</g>
+					<g class="fill-paper stroke-line" stroke-width="1.5">
+						<rect x="8" y="12" width="104" height="26" rx="5"></rect>
+						<rect x="8" y="56" width="104" height="26" rx="5"></rect>
+						<rect x="8" y="100" width="104" height="26" rx="5"></rect>
+						<rect x="8" y="144" width="104" height="26" rx="5"></rect>
+						<rect x="8" y="188" width="104" height="26" rx="5"></rect>
+					</g>
+					<g class="fill-muted font-mono" font-size="9.5" letter-spacing="0.08em">
+						<text x="18" y="29">MANAGER</text>
+						<text x="18" y="73">TEAM LEAD</text>
+						<text x="18" y="117">CLIENT</text>
+						<text x="18" y="161">PROJECT X</text>
+						<text x="18" y="205">UNASSIGNED</text>
+					</g>
+					<circle cx="284" cy="113" r="24" class="fill-accent"></circle>
+					<circle cx="284" cy="113" r="24" fill="none" class="stroke-signal" stroke-width="1.5" opacity="0.6"></circle>
+					<text
+						x="284"
+						y="117"
+						text-anchor="middle"
+						class="fill-white font-mono"
+						font-size="11"
+						font-weight="500">G.R.</text>
+					<text
+						x="284"
+						y="156"
+						text-anchor="middle"
+						class="fill-muted font-mono"
+						font-size="9"
+						letter-spacing="0.08em">97% CONFIDENCE</text>
+				</svg>
+				<p class="mt-4 font-mono text-xs text-muted">Everything converges.</p>
+			</figure>
+		</div>
+
+		<p class="reveal mt-8 max-w-2xl text-[15px] leading-relaxed text-muted">
+			Both graphs describe the same team, during the same quarter. Only one of them predicts
+			what happens next.
+		</p>
+	</div>
+</section>

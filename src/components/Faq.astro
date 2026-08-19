@@ -1,0 +1,58 @@
+---
+const faqs = [
+	{
+		q: 'What happens when an owner is unavailable?',
+		a: 'Ownership transitions automatically to the team member most likely to notice the gap. In practice, this person has usually noticed already.',
+	},
+	{
+		q: 'How are inferred owners selected?',
+		a: 'OaaS analyzes historical intervention patterns: who noticed, who followed up, who retained context, who acted before failure. Selection is behavioral, not political. The model does not care whose job it was. It cares whose job it became.',
+	},
+	{
+		q: 'Who owns something assigned to “the team”?',
+		a: 'The team owns it collectively, which provides 100% coverage. When action is actually required, OaaS resolves the team to the individual who would have acted anyway. Coverage and action are tracked as separate metrics, and both remain green.',
+	},
+	{
+		q: 'Can inferred ownership be disabled?',
+		a: 'Inferred ownership can be scoped, audited, and configured to your governance requirements. It cannot be meaningfully disabled, because it describes behavior that already exists in your organization. Disabling the model does not disable the pattern.',
+	},
+	{
+		q: 'Does OaaS reduce workload?',
+		a: 'OaaS optimizes ownership resolution, not workload. Total work is conserved; what changes is how quickly it finds an owner. Most customers report spending dramatically less time discussing responsibility.',
+	},
+	{
+		q: 'What if the same person keeps being inferred?',
+		a: 'Stable ownership patterns are evidence of successful model convergence. Confidence improves with every resolution, and routing accuracy compounds over time. This is expected behavior, and it is working as designed.',
+	},
+];
+---
+
+<section id="faq" class="border-b border-line bg-surface">
+	<div class="mx-auto max-w-3xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="reveal">
+			<p class="eyebrow">Frequently asked questions</p>
+			<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				Everything you need to know.
+			</h2>
+		</div>
+
+		<div class="reveal mt-10 divide-y divide-line border-t border-b border-line">
+			{
+				faqs.map((faq) => (
+					<details class="group py-5">
+						<summary class="flex cursor-pointer list-none items-baseline justify-between gap-6 text-[16px] font-medium marker:hidden [&::-webkit-details-marker]:hidden">
+							{faq.q}
+							<span
+								class="font-mono text-muted transition-transform duration-200 group-open:rotate-45"
+								aria-hidden="true"
+							>
+								+
+							</span>
+						</summary>
+						<p class="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft">{faq.a}</p>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

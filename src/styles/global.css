@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+	--color-paper: #f6f5f0;
+	--color-surface: #fffefa;
+	--color-ink: #1a1c1e;
+	--color-ink-soft: #3f4348;
+	--color-muted: #6a6f75;
+	--color-line: #e2e0d7;
+	--color-accent: #17604a;
+	--color-accent-deep: #0f4735;
+	--color-accent-soft: #e9f0ec;
+	--color-signal: #59d69e;
+	--color-warn: #b45309;
+	--color-console: #14161a;
+	--color-console-soft: #1c1f24;
+	--color-console-line: #2c3036;
+	--color-console-text: #cbc9c1;
+	--color-console-dim: #83878e;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+	body {
+		text-rendering: optimizeLegibility;
+	}
+	::selection {
+		background: var(--color-accent);
+		color: var(--color-paper);
+	}
+}
+
+@layer components {
+	/* Section eyebrow label */
+	.eyebrow {
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+		font-weight: 500;
+	}
+
+	/* Dark ops-console panel */
+	.console {
+		background: var(--color-console);
+		color: var(--color-console-text);
+		font-family: var(--font-mono);
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-console-line);
+		box-shadow:
+			0 1px 2px rgb(20 22 26 / 0.12),
+			0 12px 32px -12px rgb(20 22 26 / 0.35);
+	}
+	.console-label {
+		color: var(--color-console-dim);
+		font-size: 0.6875rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+	.console-value {
+		font-size: 0.8125rem;
+	}
+
+	/* Light exhibit panel used inside capability cards */
+	.exhibit {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		background: var(--color-paper);
+		border: 1px solid var(--color-line);
+		border-radius: 0.375rem;
+	}
+
+	/* Scroll reveal — hidden state only applies once JS has tagged the root */
+	.js .reveal {
+		opacity: 0;
+		transform: translateY(14px);
+		transition:
+			opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.js .reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.js .reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+	}
+}

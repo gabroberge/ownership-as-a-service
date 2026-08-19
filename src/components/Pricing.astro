@@ -1,0 +1,123 @@
+---
+const tiers = [
+	{
+		name: 'Contributor',
+		tagline: 'Own your work.',
+		price: '$0',
+		unit: 'forever',
+		featured: false,
+		features: [
+			'Personal ownership ledger',
+			'Explicit assignment',
+			'Follow-up tracking',
+			'1 owner (you)',
+		],
+		cta: 'Start owning',
+	},
+	{
+		name: 'Team',
+		tagline: 'Share ownership.',
+		price: '$12',
+		unit: 'per seat / month',
+		featured: false,
+		features: [
+			'Shared Ownership™',
+			'Responsibility Diffusion™',
+			'Coverage reporting',
+			'Accountable individuals optional',
+		],
+		cta: 'Start sharing',
+	},
+	{
+		name: 'Organization',
+		tagline: 'Automate ownership.',
+		price: '$49',
+		unit: 'per seat / month',
+		featured: true,
+		features: [
+			'Ownership Inference™',
+			'Reliable Person Routing™',
+			'Continuous Ownership Learning™',
+			'Zero-assignment mode',
+			'Convergence analytics',
+		],
+		cta: 'Start converging',
+	},
+	{
+		name: 'Enterprise',
+		tagline: 'Custom accountability.',
+		price: 'Custom',
+		unit: 'annual contract',
+		featured: false,
+		features: [
+			'Custom ownership policies',
+			'Executive ownership exclusions',
+			'Responsibility retention',
+			'Accountability export',
+			'Dedicated Ownership Success Manager',
+		],
+		cta: 'Contact sales',
+	},
+];
+---
+
+<section id="pricing" class="border-b border-line">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="reveal max-w-2xl">
+			<p class="eyebrow">Pricing</p>
+			<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				Accountability at every scale.
+			</h2>
+		</div>
+
+		<div class="reveal mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+			{
+				tiers.map((tier) => (
+					<article
+						class={`relative flex flex-col rounded-lg border p-7 ${
+							tier.featured
+								? 'border-accent bg-surface shadow-[0_12px_32px_-16px_rgb(23_96_74_/_0.35)]'
+								: 'border-line bg-surface'
+						}`}
+					>
+						{tier.featured && (
+							<span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-1 font-mono text-[10px] tracking-[0.12em] whitespace-nowrap text-white uppercase">
+								Most converged
+							</span>
+						)}
+						<h3 class="text-lg font-semibold tracking-tight">{tier.name}</h3>
+						<p class="mt-1 text-[14px] text-muted">{tier.tagline}</p>
+						<p class="mt-5">
+							<span class="text-3xl font-semibold tracking-tight">{tier.price}</span>
+							<span class="ml-1.5 font-mono text-xs text-muted">{tier.unit}</span>
+						</p>
+						<ul class="mt-6 flex-1 space-y-2.5 border-t border-line pt-5">
+							{tier.features.map((feature) => (
+								<li class="flex gap-2.5 text-[14px] text-ink-soft">
+									<span class="text-accent" aria-hidden="true">
+										✓
+									</span>
+									{feature}
+								</li>
+							))}
+						</ul>
+						<a
+							href="#demo"
+							class={`mt-7 rounded-md px-4 py-2.5 text-center text-[14px] font-medium transition-colors ${
+								tier.featured
+									? 'bg-accent text-white hover:bg-accent-deep'
+									: 'border border-line bg-paper text-ink hover:border-muted'
+							}`}
+						>
+							{tier.cta}
+						</a>
+					</article>
+				))
+			}
+		</div>
+
+		<p class="reveal mt-8 font-mono text-xs text-muted">
+			All plans include 100% ownership coverage. Workload is conserved across all tiers.
+		</p>
+	</div>
+</section>

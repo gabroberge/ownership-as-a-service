@@ -1,0 +1,85 @@
+---
+const signals = [
+	'noticed the last 8 unassigned follow-ups',
+	'requested status 11 times without being asked to',
+	'retains full client context',
+	'historically intervenes 2–4 days before deadlines',
+	'has never allowed this category of work to fail',
+];
+---
+
+<section id="routing" class="border-b border-line">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<div class="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
+			<div class="reveal">
+				<p class="eyebrow">Reliable Person Routing™</p>
+				<h2 class="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+					When ownership is unclear, OaaS resolves it.
+				</h2>
+				<p class="mt-5 text-[16.5px] leading-relaxed text-ink-soft">
+					Assignment fields can be empty. Teams can disagree. Escalation paths can loop. It
+					doesn't matter. Reliable Person Routing™ predicts which team member is most likely
+					to intervene before the work fails — and routes ownership directly to them.
+				</p>
+				<p class="mt-4 text-[16.5px] leading-relaxed text-ink-soft">
+					Every inference is backed by observed behavior. Every resolution is fully
+					auditable. Nothing is ever dropped, because the router selects for exactly one
+					property: <strong class="font-semibold text-ink">the historical refusal to let
+					things fail.</strong>
+				</p>
+				<p class="mt-6 font-mono text-sm text-accent">
+					The work always finds an owner.
+				</p>
+			</div>
+
+			<!-- Resolution record -->
+			<div class="reveal console" aria-label="Example ownership resolution record">
+				<div
+					class="flex items-center justify-between border-b border-console-line bg-console-soft px-5 py-3"
+				>
+					<span class="console-label">Resolution record</span>
+					<span class="console-label">#04187</span>
+				</div>
+				<div class="px-5 py-6 sm:px-6">
+					<div class="grid grid-cols-[8.5rem_1fr] gap-x-4 gap-y-3">
+						<span class="console-label pt-0.5">Task</span>
+						<span class="console-value">Client follow-up — Meridian renewal</span>
+
+						<span class="console-label pt-0.5">Assigned owner</span>
+						<span class="console-value text-console-dim">—</span>
+
+						<span class="console-label pt-0.5">Team owner</span>
+						<span class="console-value">Delivery</span>
+
+						<span class="console-label pt-0.5">Inferred owner</span>
+						<span class="console-value font-medium text-signal">Gabriel R.</span>
+
+						<span class="console-label pt-0.5">Confidence</span>
+						<span class="console-value tabular-nums">97%</span>
+					</div>
+
+					<div class="mt-5 border-t border-console-line pt-5">
+						<span class="console-label">Signals</span>
+						<ul class="mt-3 space-y-2">
+							{
+								signals.map((signal) => (
+									<li class="console-value flex gap-2.5 leading-relaxed">
+										<span class="text-signal" aria-hidden="true">
+											•
+										</span>
+										{signal}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+
+					<div class="mt-5 flex items-center justify-between border-t border-console-line pt-4">
+						<span class="console-label">Resolution</span>
+						<span class="console-value text-signal">Routed · 1.2s</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

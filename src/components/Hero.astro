@@ -1,0 +1,176 @@
+---
+const customers = [
+	'Normative',
+	'Cadenza',
+	'Quorum Systems',
+	'Steadier',
+	'Palimpsest',
+	'Meridian Group',
+];
+---
+
+<section id="top" class="relative overflow-hidden border-b border-line">
+	<div
+		class="pointer-events-none absolute inset-0 opacity-[0.35]"
+		style="background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px); background-size: 56px 56px;"
+		aria-hidden="true"
+	>
+	</div>
+
+	<div class="relative mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-8 lg:pt-24 lg:pb-20">
+		<div class="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+			<div>
+				<p class="eyebrow">Ownership infrastructure</p>
+				<h1
+					class="mt-4 max-w-xl text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl lg:text-[3.4rem]"
+				>
+					The work always finds an&nbsp;owner.
+				</h1>
+				<p class="mt-6 max-w-lg text-[17px] leading-relaxed text-ink-soft">
+					OaaS™ is the ownership layer for modern organizations. It observes how work
+					actually gets done, resolves ambiguous responsibility in seconds, and guarantees
+					that no task, decision, follow-up, or loose end goes unowned. Ever.
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<a
+						href="#demo"
+						class="rounded-md bg-accent px-5 py-3 text-[15px] font-medium text-white transition-colors hover:bg-accent-deep"
+					>
+						Request a demo
+					</a>
+					<a
+						href="#routing"
+						class="rounded-md border border-line bg-surface px-5 py-3 text-[15px] font-medium text-ink transition-colors hover:border-muted"
+					>
+						See the routing engine
+					</a>
+				</div>
+				<p class="mt-6 font-mono text-xs text-muted">
+					No configuration required. OaaS begins observing immediately.
+				</p>
+			</div>
+
+			<!-- Live ownership resolution console -->
+			<div class="console overflow-hidden" aria-label="Ownership resolution demonstration">
+				<div
+					class="flex items-center justify-between border-b border-console-line bg-console-soft px-5 py-3"
+				>
+					<span class="console-label flex items-center gap-2">
+						<span class="relative flex h-2 w-2">
+							<span
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60 motion-reduce:hidden"></span>
+							<span class="relative inline-flex h-2 w-2 rounded-full bg-signal"></span>
+						</span>
+						Ownership resolution — live
+					</span>
+					<span class="console-label" id="hero-counter">resolved today: 147</span>
+				</div>
+				<div class="space-y-4 px-5 py-6 sm:px-6">
+					<div class="grid grid-cols-[7.5rem_1fr] gap-x-4 gap-y-3">
+						<span class="console-label pt-0.5">Task</span>
+						<span class="console-value" id="hero-task">Client follow-up — Meridian renewal</span>
+
+						<span class="console-label pt-0.5">Assigned owner</span>
+						<span class="console-value text-console-dim">—</span>
+
+						<span class="console-label pt-0.5">Team owner</span>
+						<span class="console-value" id="hero-team">Delivery</span>
+					</div>
+
+					<div class="border-t border-console-line pt-4">
+						<div class="grid grid-cols-[7.5rem_1fr] gap-x-4 gap-y-3">
+							<span class="console-label pt-0.5">Inferred owner</span>
+							<span class="console-value font-medium text-signal" id="hero-owner">Gabriel R.</span>
+
+							<span class="console-label pt-0.5">Confidence</span>
+							<span class="console-value flex items-center gap-3">
+								<span id="hero-confidence" class="tabular-nums">97%</span>
+								<span
+									class="h-1.5 w-24 overflow-hidden rounded-full bg-console-line"
+									aria-hidden="true"
+								>
+									<span
+										id="hero-bar"
+										class="block h-full rounded-full bg-signal transition-[width] duration-700 ease-out"
+										style="width: 97%"></span>
+								</span>
+							</span>
+
+							<span class="console-label pt-0.5">Resolution</span>
+							<span class="console-value" id="hero-status">Routed · 1.2s</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-16 border-t border-line pt-8 lg:mt-20">
+			<p class="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+				Trusted by organizations where everyone is responsible
+			</p>
+			<ul class="mt-5 flex flex-wrap items-center gap-x-10 gap-y-3">
+				{
+					customers.map((name) => (
+						<li class="text-[15px] font-semibold tracking-tight text-muted/80 select-none">
+							{name}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<script>
+	const tasks = [
+		{ task: 'Client follow-up — Meridian renewal', team: 'Delivery', confidence: 97 },
+		{ task: 'Vendor security questionnaire', team: 'Platform', confidence: 98 },
+		{ task: 'Q3 retro action items', team: 'Engineering', confidence: 98 },
+		{ task: 'Renewal risk — unassigned since March', team: 'Accounts', confidence: 99 },
+	];
+
+	const el = (id: string) => document.getElementById(id);
+	const taskEl = el('hero-task');
+	const teamEl = el('hero-team');
+	const ownerEl = el('hero-owner');
+	const confEl = el('hero-confidence');
+	const barEl = el('hero-bar');
+	const statusEl = el('hero-status');
+	const counterEl = el('hero-counter');
+
+	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (!reduced && taskEl && teamEl && ownerEl && confEl && barEl && statusEl && counterEl) {
+		let i = 0;
+		let resolved = 147;
+
+		const cycle = () => {
+			i = (i + 1) % tasks.length;
+			const t = tasks[i];
+
+			// New task arrives; ownership is momentarily unresolved.
+			taskEl.textContent = t.task;
+			teamEl.textContent = t.team;
+			ownerEl.textContent = 'resolving…';
+			ownerEl.classList.remove('text-signal');
+			ownerEl.classList.add('text-console-dim');
+			confEl.textContent = '—';
+			barEl.style.width = '0%';
+			statusEl.textContent = 'Observing intervention history…';
+
+			// It resolves. It always resolves. To the same person.
+			setTimeout(() => {
+				ownerEl.textContent = 'Gabriel R.';
+				ownerEl.classList.add('text-signal');
+				ownerEl.classList.remove('text-console-dim');
+				confEl.textContent = `${t.confidence}%`;
+				barEl.style.width = `${t.confidence}%`;
+				statusEl.textContent = 'Routed · 1.2s';
+				resolved += 1;
+				counterEl.textContent = `resolved today: ${resolved}`;
+			}, 1400);
+		};
+
+		setInterval(cycle, 4600);
+	}
+</script>

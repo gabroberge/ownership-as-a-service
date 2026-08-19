@@ -1,0 +1,43 @@
+---
+const testimonials = [
+	{
+		quote:
+			'OaaS identified our natural owner in the first week. We haven’t had to discuss responsibility since.',
+		name: 'Dana K.',
+		role: 'VP Operations, Cadenza',
+	},
+	{
+		quote:
+			'Coverage hit 100% almost immediately. Honestly, I couldn’t tell you how things get done anymore. They just do.',
+		name: 'Priya S.',
+		role: 'CTO, Normative',
+	},
+	{
+		quote:
+			'We used to spend entire meetings asking who owned things. Now there’s nothing to discuss. The system knows.',
+		name: 'Tom W.',
+		role: 'Head of Delivery, Quorum Systems',
+	},
+];
+---
+
+<section class="border-b border-line bg-surface">
+	<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+		<p class="eyebrow reveal">Customer outcomes</p>
+		<div class="reveal mt-10 grid gap-6 md:grid-cols-3">
+			{
+				testimonials.map((t) => (
+					<figure class="flex flex-col justify-between rounded-lg border border-line bg-paper p-7">
+						<blockquote class="text-[16px] leading-relaxed text-ink">
+							“{t.quote}”
+						</blockquote>
+						<figcaption class="mt-6 border-t border-line pt-4">
+							<span class="block text-[14px] font-semibold">{t.name}</span>
+							<span class="block font-mono text-xs text-muted">{t.role}</span>
+						</figcaption>
+					</figure>
+				))
+			}
+		</div>
+	</div>
+</section>
