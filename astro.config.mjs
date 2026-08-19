@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://gabroberge.github.io',
+	base: '/ownership-as-a-service',
 	vite: {
 		plugins: [tailwindcss()],
 	},

@@ -16,7 +16,26 @@ Static site built with [Astro](https://astro.build) and [Tailwind CSS](https://t
 ```sh
 bun install
 bun run dev      # or: astro dev --background
+bun run check    # typecheck
 bun run build
+```
+
+## Deployment
+
+The site deploys to GitHub Pages at
+`https://gabroberge.github.io/ownership-as-a-service/` via
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml) on every push to
+`master` (build → typecheck → upload → deploy, no branch artifacts). `site` and
+`base` are set in [astro.config.mjs](astro.config.mjs), so all asset and
+social-preview URLs resolve correctly under the project subpath.
+
+One-time repository setup (Pages via workflow, Dependabot, secret scanning,
+action allowlist, branch protection) is scripted in
+[scripts/github-setup.sh](scripts/github-setup.sh):
+
+```sh
+gh auth login
+./scripts/github-setup.sh
 ```
 
 ## Structure
